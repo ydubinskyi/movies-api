@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "People",
+  "info": {
+    "name": "person",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "photo": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "movies": {
+      "collection": "movie",
+      "via": "people",
+      "dominant": true
+    },
+    "biography": {
+      "type": "richtext"
+    }
+  }
+}
